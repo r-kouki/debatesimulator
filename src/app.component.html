@@ -1,0 +1,36 @@
+<div class="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-indigo-900 text-slate-100 p-4 sm:p-6 lg:p-8">
+  <div class="max-w-7xl mx-auto">
+    
+    <header class="text-center mb-8">
+      <h1 class="text-4xl sm:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-cyan-400 mb-2">
+        AI-Powered Debate Simulator
+      </h1>
+      <p class="text-slate-400 text-lg">Media Intelligence & Gamified Learning</p>
+    </header>
+
+    <nav class="flex justify-center items-center bg-slate-800/50 rounded-full p-1.5 max-w-sm mx-auto mb-10 backdrop-blur-sm border border-slate-700">
+      <button
+        (click)="setMode('media')"
+        [class]="activeMode() === 'media' ? 'bg-indigo-600 text-white' : 'text-slate-300 hover:bg-slate-700/50'"
+        class="w-1/2 py-2 px-4 rounded-full transition-colors duration-300 ease-in-out text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-slate-900">
+        Media Platform
+      </button>
+      <button
+        (click)="setMode('game')"
+        [class]="activeMode() === 'game' ? 'bg-indigo-600 text-white' : 'text-slate-300 hover:bg-slate-700/50'"
+        class="w-1/2 py-2 px-4 rounded-full transition-colors duration-300 ease-in-out text-sm font-semibold focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-slate-900">
+        Debate Game
+      </button>
+    </nav>
+
+    <main>
+      @if (activeMode() === 'media') {
+        <app-media-platform />
+      }
+      @if (activeMode() === 'game') {
+        <app-debate-game />
+      }
+    </main>
+
+  </div>
+</div>

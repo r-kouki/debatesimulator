@@ -1,0 +1,7 @@
+{
+  "name": "AI Debate Simulator",
+  "description": "An AI-powered platform to analyze debate topics for media professionals and a gamified debate simulator for public and educational use.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
