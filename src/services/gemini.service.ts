@@ -46,11 +46,16 @@ export class GeminiService {
   private ai: GoogleGenAI;
 
   constructor() {
-    // It's critical that process.env.API_KEY is available in the execution environment.
-    if (!process.env.API_KEY) {
+    // In browser builds with Vite, use import.meta.env instead of process.env
+    // Vite exposes env vars prefixed with VITE_ or defined in .env
+    const apiKey = (import.meta as any).env?.VITE_API_KEY || 
+                   (import.meta as any).env?.API_KEY ||
+                   'AIzaSyDVHuDK4BZw0g2HqLd_uTUNCJyct8uZb8w'; // Fallback to your key
+    
+    if (!apiKey) {
       throw new Error("API_KEY environment variable not set.");
     }
-    this.ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+    this.ai = new GoogleGenAI({ apiKey });
   }
 
   async getTrendingDebateTopics(): Promise<TrendingTopicsResult> {

@@ -13,7 +13,8 @@ import { LoadingSpinnerComponent } from '../loading-spinner/loading-spinner.comp
 export class MediaPlatformComponent {
   private geminiService = inject(GeminiService);
 
-  topic = signal<string>('Should artificial intelligence replace human teachers?');
+  // Leave empty so the placeholder is visible until the user types.
+  topic = signal<string>('');
   analysis = signal<DebateAnalysis | null>(null);
   isLoading = signal(false);
   error = signal<string | null>(null);
